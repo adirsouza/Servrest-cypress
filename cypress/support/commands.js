@@ -1,6 +1,5 @@
-// ============================================================
 // Comandos customizados — Frontend (UI)
-// ============================================================
+
 
 /**
  * Realiza login via interface, usando os Page Objects.
@@ -13,9 +12,7 @@ Cypress.Commands.add("loginUI", (email, password) => {
   cy.get("[data-testid=entrar]").click();
 });
 
-// ============================================================
 // Comandos customizados — API
-// ============================================================
 
 /**
  * Cria um usuário via API e retorna a resposta completa (cy.wrap),
