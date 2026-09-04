@@ -1,6 +1,6 @@
 {
   "nome": "Usuario Teste QA",
-  "email": "usuario.teste.qa@example.com",
+  "email": "usuario.teste.qa@teste.com",
   "password": "Senha@123",
   "administrador": "false"
 }

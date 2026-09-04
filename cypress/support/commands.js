@@ -1,17 +1,27 @@
-// comandos de UI
+// ============================================================
+// Comandos customizados — Frontend (UI)
+// ============================================================
 
-Cypress.Commands.add('loginUI', (email, password) => {
-  cy.visit('/login')
-  cy.get('[data-testid=email]').clear().type(email)
-  cy.get('[data-testid=senha]').clear().type(password)
-  cy.get('[data-testid=entrar]').click()
-})
+/**
+ * Realiza login via interface, usando os Page Objects.
+ * Mantido em commands.js para reuso simples entre specs.
+ */
+Cypress.Commands.add("loginUI", (email, password) => {
+  cy.visit("/login");
+  cy.get("[data-testid=email]").clear().type(email);
+  cy.get("[data-testid=senha]").clear().type(password);
+  cy.get("[data-testid=entrar]").click();
+});
 
-// comandos de API
-// uso failOnStatusCode: false pra poder validar status de erro (401, 400 etc)
-// sem o Cypress quebrar o teste antes de eu conseguir checar a resposta
+// ============================================================
+// Comandos customizados — API
+// ============================================================
 
-Cypress.Commands.add('apiCriarUsuario', (usuario) => {
+/**
+ * Cria um usuário via API e retorna a resposta completa (cy.wrap),
+ * permitindo encadear .then() no teste que chamou o comando.
+ */
+Cypress.Commands.add("apiCriarUsuario", (usuario) => {
   return cy.request({
     method: 'POST',
     url: `${Cypress.env('apiUrl')}/usuarios`,
