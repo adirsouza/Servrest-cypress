@@ -1,7 +1,5 @@
-import "./commands";
+import './commands'
 
-// Evita que exceções não tratadas pela aplicação (fora do nosso controle)
-// derrubem a suíte de testes. Mantemos o log para investigação.
-Cypress.on("uncaught:exception", () => {
-  return false;
-});
+// alguns erros de console da própria aplicação (fora do nosso controle)
+// derrubavam a suíte inteira, então ignoro exceções não tratadas aqui
+Cypress.on('uncaught:exception', () => false)
